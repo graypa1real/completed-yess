@@ -1,0 +1,59 @@
+          .pos 0
+main:     irmovq stack, %rsp
+          #initialize %rdi to the number of
+          #fibonacci numbers to compute
+          irmovq $20, %rdi
+          #initialize %rsi to the address
+          #of where to store the numbers
+          irmovq fibolst, %rsi
+          call fibo
+          halt
+# fibo
+# Computes fibonacci numbers
+# param: %rdi - contains a count of the
+#        number of fibonacci numbers to
+#        compute
+# param: %rsi - contains the starting
+#        address in memory of where to
+#        store the numbers
+#
+fibo:     #put your code here
+        irmovq $1, %r11 #r11 decrments rdi
+        irmovq $8, %r8 #r8 incremnets memeory location
+        #get first step done manually
+        andq %rdi, %rdi
+        je done
+
+        rmmovq %r11, (%rsi)
+        addq %r8, %rsi
+        subq %r11, %rdi
+        je done
+        rmmovq %r11, (%rsi)
+        subq %r11, %rdi
+        je done
+fiboloop:
+        #if rdi is 0, go to done
+        andq %rdi, %rdi
+        je done
+        #pull previous number from memeory
+        subq %r8, %rsi
+        mrmovq (%rsi), %rax
+        #pull current number from memeroy
+        addq %r8, %rsi
+        mrmovq (%rsi), %rcx
+        #add numbers
+        addq %rax, %rcx
+        #add 8 to memory location
+        addq %r8, %rsi
+        #store rcx in the new memeory location
+        rmmovq %rcx, (%rsi)
+        #decrement rdi
+        subq %r11, %rdi
+        #jump back to fiboloop
+        jmp fiboloop
+done:     ret
+#
+          .align 8
+fibolst:  .quad 0
+          .pos 0x400
+stack:

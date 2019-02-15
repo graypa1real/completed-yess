@@ -1,0 +1,28 @@
+Programming Log
+Peter Gray
+day/ month/ year
+1) 11/9/2018
+    i) made make file together.
+    ii) created the methods within the RegisterRile.C with partner.
+2) 12/9/2018
+    i) worked in library together to make CC.C file work.
+3) 14/9/2018
+    i) got bored and worked on Memory class.
+        I)implemented getInstance
+        II)implemented everything else, but there are errors either with getlong or putlong.
+4)  17/9/2018
+    i) worked on fixing the Memory class.  fixed.  It was viewing the right side of ret = ret | (mem[address] << (8 * i)) as a 32 bit value
+        so when it hit the 33rd bit it reset.
+
+
+5) I did all of lab5. What a suprise
+6) I have done everything through lab8 alone.
+7) lab9 we did it together in lab.  I did Execute, Memory, and Writeback while Joshua did the decode and getMax, I typed it up from his direction.
+8) 11/13/18
+    lab10  II) fetch stage and writeback modifications
+          III) fetch stage modifications
+           IV)started fetch stage modifications
+9) 12/5/18
+    lab10: fixed it so all tests are now passing.
+
+
